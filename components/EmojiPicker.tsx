@@ -1,4 +1,4 @@
-import { Modal, View, Text, Pressable, StyleSheet } from 'react-native';
+import { Modal, View, Text, Pressable, StyleSheet,  } from 'react-native';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
 import { ReactNode } from 'react';
 
@@ -9,7 +9,7 @@ export default function EmojiPicker({ isVisible, children, onClose }: { isVisibl
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Choose a sticker</Text>
           <Pressable onPress={onClose}>
-            <MaterialIcons name="close" color="#fff" size={22} />
+            <MaterialIcons name="close" color="#fff" size={22}  />
           </Pressable>
         </View>
         {children}
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
       borderTopRightRadius: 18,
       borderTopLeftRadius: 18,
       position: 'absolute',
-      top: 0
+      bottom: 0,
     },
     titleContainer: {
       height: '16%',
