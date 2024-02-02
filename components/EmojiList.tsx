@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, FlatList, Image, Platform, Pressable } from 'react-native';
 
-export default function EmojiList({ onSelect, onCloseModal }: { onSelect: (param: string) => void, onCloseModal: () => void }) {
+export default function EmojiList({ onSelect, onCloseModal }: { onSelect: React.Dispatch<React.SetStateAction<null>>, onCloseModal: () => void }) {
   const [emoji] = useState([
     require('../assets/images/emoji1.png'),
     require('../assets/images/emoji2.png'),
@@ -17,7 +17,9 @@ export default function EmojiList({ onSelect, onCloseModal }: { onSelect: (param
       showsHorizontalScrollIndicator={Platform.OS === 'web'}
       data={emoji}
       contentContainerStyle={styles.listContainer}
-      renderItem={({ item, index }) => (
+      renderItem={({ item, index }) => {
+     
+        return (
         <Pressable
           onPress={() => {
             onSelect(item);
@@ -25,7 +27,8 @@ export default function EmojiList({ onSelect, onCloseModal }: { onSelect: (param
           }}>
           <Image source={item} key={index} style={styles.image} />
         </Pressable>
-      )}
+        )
+      }}
     />
   );
 }
